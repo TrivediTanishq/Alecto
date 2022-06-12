@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  .banner-image {
+    background-image: url('{% static "img-4.jpg"%}');
+    background-size: cover;
+  }
+</style>
+
+<!-- Banner Image  -->
+<div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center" >
+<div class="content text-center">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+      <input type="file" class="form-control " name="document" id="inputGroupFile02">
+      <button class="input-group-text btn btn-primary" type="submit" for="inputGroupFile02" id="button-addon2">Upload file</button>
+    </div>
+  </form>
+</div>
+</div>
+{% endblock %}
+

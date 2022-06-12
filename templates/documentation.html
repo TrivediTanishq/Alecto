@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  p {
+    color: var(--dark-blue);
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+</style>
+
+
+<section id="home" class="banner_wrapper">
+  <div class="container">
+      <h1>Here starts<br><span>Documentation</span><br><h1></h1>
+  </div>
+
+  <div class="container">
+    <div class="p-5 border">
+      <p>
+        The home page has an upload button where you have to upload the csv file. The csv file should have all columns like <b>'kepid', 'tce_plnt_num', 'tce_rogue_flag', 'tce_period','tce_period_err', 'tce_time0bk', 'tce_time0bk_err', 'tce_impact','tce_impact_err', 'tce_duration', 'tce_duration_err', 'tce_depth','tce_depth_err', 'tce_model_snr', 'tce_prad', 'tce_prad_err', 'tce_eqt','tce_eqt_err', 'tce_insol', 'tce_insol_err', 'tce_steff','tce_steff_err', 'tce_slogg', 'tce_slogg_err', 'tce_sradius', 'tce_sradius_err'</b> for the web application to work properly.
+      </p>
+    </div>
+    <div class="p-5 border">
+      <p>
+        After uploading the csv file you are redirected to 'result.html'. There you can see the entered dataframe and also download the results using download button given just below the daaframe. The download csv file gets saved on your computer with the name 'results.csv'. It is similar to original file which is entered by the user except for the av column. The av column has the one of the following value :
+        <ul>
+          <li>AFP</li>
+          <li>NTP</li>
+          <li>PC</li>
+          <li>UNK</li>
+        </ul>
+        
+
+      </p>
+    </div>
+    <div class="p-5 border">
+      <p>
+        The classification page (classify.html) contains the details about the models and also the steps followed while making the model.
+      </p>
+    </div>
+  </div>
+
+
+</section>
+<!-- Banner section exit -->
+
+<!-- Main Content Area -->
+
+
+{% endblock %}

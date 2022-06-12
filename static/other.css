@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Background Color */
+    --dark-blue: #14213D;
+    --white: #FFFFFF;
+    --orange: #FCA311;
+    --primary-font:'Poppins';
+    --text: #000000;
+    --text-white: #FFFFFF;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 1 Custom CSS */
+
+section {
+    padding: 50px 0;
+}
+
+h1 {
+    font-size: 54px;
+    line-height: 68px;
+    font-weight: 800;
+    color: var(--bg-dark-blue);
+    margin-bottom: 20px;
+}
+
+h1 span {
+    color: var(--orange);
+}
+
+h2 {
+    font-size: 50px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--text-white);
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin-bottom: 19px;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--text-white);
+}
+
+h6 {
+    color: var(--text-white);
+    font-size: 15px;
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--dark-blue);
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.subtitle {
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    background: var(--primary-color);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+input:hover,
+input:focus,
+textarea:focus,
+textarea:hover,
+button {
+    outline: none !important;
+    box-shadow: none !important; 
+}
+
+/* 2 Navbar */
+.header_wrapper .navbar {
+    padding:15px 0;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.header_wrapper .navbar-brand img {
+    max-width: 120px;
+    height: auto;
+}
+
+
+.header_wrapper .nav-item {
+    margin: 0 10px;
+}
+
+.header_wrapper .nav-item .nav-link {
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--orange);
+    display:inline-block;
+}
+
+.header_wrapper .nav-item .nav-link::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--orange);
+    transition: 0.3s;
+    bottom: 0;
+}
+
+.header_wrapper .nav-item .nav-link:hover::after{
+    width: 100%;
+}
+
+.active_nav {
+    background-color: #14213D;
+}

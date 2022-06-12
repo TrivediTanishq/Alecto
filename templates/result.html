@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <!-- Banner section -->
+    <section id="home" class="banner_wrapper">
+        <div class="container">
+            <div class="row"> 
+                <div class="col-sm-12 text-center text-md-start">
+                    <h3>ENTERED DATAFRAME :</h3>
+                    <br>
+                    <br>
+                    <div>
+                    <table class="table table-secondary table-hover table-striped-columns">
+                        <thead>
+                          <tr>
+                            {% for k in cols %} 
+                            <th><h6>{{k}}</h6></th>
+                            {% endfor %}
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% if dataframe %}  
+                        {% for i in dataframe %}
+                          <tr>
+                            <td>{{i.kepid}}</td>
+                            <td>{{i.tce_plnt_num}}</td>
+                            <td>{{i.tce_rogue_flag}}</td>
+                            <td>{{i.tce_period}}</td>
+                            <td>{{i.tce_period_err}}</td>
+                            <td>{{i.tce_time0bk}}</td>
+                            <td>{{i.tce_time0bk_err}}</td>
+                            <td>{{i.tce_impact}}</td>
+                            <td>{{i.tce_impact_err}}</td>
+                            <td>{{i.tce_duration}}</td>
+                            <td>{{i.tce_duration_err}}</td>
+                            <td>{{i.tce_depth}}</td>
+                            <td>{{i.tce_depth_err}}</td>
+                            <td>{{i.tce_model_snr}}</td>
+                            <td>{{i.tce_prad}}</td>
+                            <td>{{i.tce_prad_err}}</td>
+                            <td>{{i.tce_eqt}}</td>
+                            <td>{{i.tce_eqt_err}}</td>
+                            <td>{{i.tce_insol}}</td>
+                            <td>{{i.tce_insol_errr}}</td>
+                            <td>{{i.tce_steff}}</td>
+                            <td>{{i.tce_steff_err}}</td>
+                            <td>{{i.tce_slogg}}</td>
+                            <td>{{i.tce_slogg_err}}</td>
+                            <td>{{i.tce_sradius}}</td>
+                            <td>{{i.tce_sradius_err}}</td>
+                          </tr>
+                        {% endfor %}
+                        {% endif %}
+                        </tbody>
+                      </table>
+                    </div>
+                    <br>
+                    <div>
+                      <a href="{% url 'download-file' %}"><button type="submit" class="btn btn-primary mb-3">Download FILE</button></a>
+                    </div>
+                </div>        
+    
+            </div>
+            <br>
+            <br>
+            <h1>The model works on <br><span>Random Forest Classifier</span><br></h1>
+        </div>
+    </section>
+    <!-- Banner section exit -->
+
+{% endblock %}

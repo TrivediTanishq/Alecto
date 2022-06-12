@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  p {
+    color: var(--dark-blue);
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+</style>
+<section id="home" class="banner_wrapper">
+  <div class="container">
+      <h1>Here starts<br><span>Classification Scheme</span><br><h1></h1>
+  </div>
+
+  <div class="container">
+    <div class="p-5 border">
+      <p>
+        Since this was a multiclass classification problem, I had to use one of the supervised learning algorithms. I decided to use either SVM(Support Vector Machines) or RandomForest.
+        The file for SVM is uploaded in github repo as <b>svm.ipynb</b> while that of RandomForest as <b>rf.ipynb</b>.
+      </p>
+    </div>
+    <div class="p-5 border">
+      <h1>Data Preprocessing</h1>
+      <p>
+        The columns such as kepid, tce_planet_number, tce_rogue_flag, tce_insol, tce_insol_err were removed because either they were not determing the final output or they were completely empty (as in case of tce_insol/err). The other columns didn't have any missing values so they were not required to be processed.
+      </p>
+    </div>
+    <div class="p-5 border">
+      <h1>Initial Run</h1>
+      <p>
+        On running the models initially with the train test split SVM gave accuracy of 46% while RandomForest gave accuracy of 65%.
+      </p>
+    </div>
+    <div class="p-5 border">
+      <h1>Feature Scaling</h1>
+      <p>
+        Since SVM depends on euclidean distance the features needto be scaled. On trying both Standardization and Normalization, Standardization gave better results. After standardizing all the columns SVM had an acuracy of 62.5% which is a good improvement over the previous base model.
+      </p>
+    </div>
+
+    <div class="p-5 border">
+      <h1>Feature Extraction</h1>
+      <p>
+        On using PCA (Principal Component Analysis) both the models reduced their accuracy so I instead decided to go with Feature Reduction.
+      </p>
+    </div>    
+    
+    <div class="p-5 border">
+      <h1>Feature Selection</h1>
+      <p>
+        For RandomForest I first decided to remove features which were nearly constant (low variance, here in this case variance less than 0.1), on using variance threshold tce_slogg_err was removed.
+        Next I used Pearson correlation to remove feature that are highly related (in this case greater than 85%) So 'tce_duration_err', 'tce_eqt_err', 'tce_sradius_err' were removed. Despite removing these features the RandomForest was giving accuracy greater than 65% consistently.
+      </p>
+    </div>
+
+    <div class="p-5 border">
+      <h1>Why I dropped SVM ?</h1>
+      <p>
+        Despite using GridSearchCV for hyperparameter tuning the SVM model the accuracy stagnated around 62%, it even dropped to 60-61% on feature reduction so I decided to finally use RandomForest.
+      </p>
+    </div>
+
+    <div class="p-5 border">
+      <h1>Hyperparameter Tuning</h1>
+      <p>
+        Despite using GridSearchCV for hyperparameter tuning the RandomForest model the accuracy stagnated around 65%.
+      </p>
+    </div>
+
+    <div class="p-5 border">
+      <h1>Other things</h1>
+      <p>
+        The ROC/AUC curves, correlation matrix, confusion matrix is given in <b>rf.ipynb</b> and <b>svm.ipynb</b>.
+      </p>
+    </div>
+  </div>
+
+
+</section>
+
+{% endblock %}
