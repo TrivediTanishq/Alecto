@@ -11,4 +11,4 @@ The following libraries are required before running this web app
 5. Matplotlib
 
 
-Thw website is made over Django framework. So to run this you also need to install django
+The website is made over Django framework. So to run this you also need to install django
